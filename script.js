@@ -1,4 +1,4 @@
-// script.js - 扩写JS，添加交互如菜单切换、轮播、生成器逻辑、表单提交模拟、平滑滚动
+// script.js - 扩写JS，添加交互如菜单切换、轮播、生成器逻辑、表单提交模拟、平滑滚动、面包屑动态、高亮导航
 
 document.addEventListener('DOMContentLoaded', () => {
     // 移动菜单切换
@@ -8,6 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+    }
+
+    // 高亮当前导航
+    const currentPage = window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        if (link.getAttribute('data-page') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+
+    // 面包屑动态生成
+    const breadcrumb = document.querySelector('.breadcrumb ol');
+    if (breadcrumb) {
+        const pages = {
+            'features': '核心功能',
+            'installation': '安装指南',
+            'usage': '使用教程',
+            'changelog': '更新日志',
+            'generator': '文案生成器',
+            'other-projects': '其他项目',
+            'documentation': '文档中心',
+            'faq': '常见问题',
+            'contributing': '贡献指南',
+            'contact': '联系我们'
+        };
+        const currentTitle = pages[currentPage] || '页面';
+        breadcrumb.innerHTML += `<li aria-current="page">${currentTitle}</li>`;
     }
 
     // 平滑滚动
@@ -28,11 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const copyBtn = document.querySelector('#copy-btn');
     if (generateBtn) {
         generateBtn.addEventListener('click', () => {
+            generateResult.innerHTML = '<div class="loader">加载中...</div>'; // Spinner
             const theme = document.querySelector('#theme').value;
             const style = document.querySelector('#style').value;
-            // 模拟生成
-            const generatedText = `基于主题"${theme}"和风格"${style}"的文案：今天是美好的一天，让我们一起加油！（这是一个模拟示例，实际集成AI后将生成真实内容。）`;
-            generateResult.textContent = generatedText;
+            // 模拟生成（延时1s）
+            setTimeout(() => {
+                const generatedText = `基于主题"${theme}"和风格"${style}"的文案：今天是美好的一天，让我们一起加油！（这是一个模拟示例，实际集成AI后将生成真实内容。）`;
+                generateResult.textContent = generatedText;
+            }, 1000);
         });
     }
     if (copyBtn) {
