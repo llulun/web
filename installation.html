@@ -1,0 +1,63 @@
+<!-- installation.html - 安装指南页面，扩写步骤 -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Qzone Praise Automator的详细安装指南，包括浏览器扩展安装、脚本导入和常见问题解决。">
+    <title>Qzone Praise Automator - 安装指南</title>
+    <link rel="canonical" href="https://yourdomain.com/installation.html">
+    <link rel="stylesheet" href="style.css">
+    <!-- ... (其他链接) -->
+</head>
+<body>
+    <header>
+        <!-- 导航 -->
+    </header>
+
+    <main>
+        <section class="installation">
+            <div class="container">
+                <h1>安装指南</h1>
+                <p>安装 Qzone Praise Automator 简单快捷，仅需几分钟。以下是步步详解，支持Chrome和Firefox浏览器。</p>
+                <ol class="step-list">
+                    <li>
+                        <h2>安装浏览器扩展</h2>
+                        <p>推荐使用Tampermonkey（或Violentmonkey）。访问Chrome Web Store搜索'Tampermonkey'，点击'添加至Chrome'。对于Firefox，从Add-ons市场安装。</p>
+                        <img src="images/install-extension.png" alt="安装Tampermonkey扩展" loading="lazy">
+                        <p><strong>注意</strong>: 确保扩展版本为4.0以上。</p>
+                    </li>
+                    <li>
+                        <h2>下载脚本文件</h2>
+                        <p>访问GitHub仓库 <a href="https://github.com/llulun/qzone-praise-automator" target="_blank">https://github.com/llulun/qzone-praise-automator</a>，点击'QZone Praise Automator.js' > 'Raw' > 右键保存。或下载整个ZIP包解压。</p>
+                        <img src="images/download-script.png" alt="下载JS脚本" loading="lazy">
+                    </li>
+                    <li>
+                        <h2>导入脚本到扩展</h2>
+                        <p>打开Tampermonkey仪表盘（工具栏图标 > 仪表盘），点击'+'创建新脚本，或通过'实用工具' > '从文件导入'上传JS文件。保存后脚本自动启用。</p>
+                        <img src="images/import-script.png" alt="导入脚本到Tampermonkey" loading="lazy">
+                        <p><strong>匹配URL</strong>: *://*.qzone.qq.com/*</p>
+                    </li>
+                    <li>
+                        <h2>验证安装</h2>
+                        <p>访问QQ空间网页，右上角应出现'AL Menu'浮动按钮。点击打开控制面板即可使用。</p>
+                        <img src="images/verify-install.png" alt="验证安装成功" loading="lazy">
+                    </li>
+                </ol>
+                <h2>常见安装问题解决</h2>
+                <ul>
+                    <li><strong>扩展未启用</strong>: 检查浏览器设置，确保Tampermonkey允许运行。</li>
+                    <li><strong>脚本未加载</strong>: 刷新页面或重启浏览器。</li>
+                    <li><strong>兼容性问题</strong>: 更新浏览器至最新版本。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- footer -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
