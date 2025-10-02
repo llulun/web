@@ -311,7 +311,7 @@ body {
     position: relative;
     padding-left: 48px;
     margin-bottom: 48px; /* 增加步骤间距避免重叠 */
-    text-align: center; /* 居中图标 */
+    text-align: left; /* 调整为左对齐，图标在左侧 */
 }
 
 .step-list li::before {
@@ -591,4 +591,11 @@ footer {
     margin-bottom: 32px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 图标样式 */
+.feature-icon, .step-icon, .faq-icon {
+    color: #1a73e8;
+    margin-bottom: 16px;
+    display: block;
 }
