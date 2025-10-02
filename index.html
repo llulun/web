@@ -4,37 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qzone Praise Automator</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <script defer src="script.js"></script>
+  <script defer src="script/main.js"></script>
 </head>
 <body>
   <header>
-    <h1>Qzone Praise Automator</h1>
+    <div class="logo-title">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <h1>Qzone Praise Automator</h1>
+    </div>
     <nav>
-      <ul>
+      <ul class="nav-list">
+        <li><a href="index.html">首页</a></li>
         <li><a href="features.html">功能介绍</a></li>
         <li><a href="installation.html">安装指南</a></li>
+        <li><a href="usage.html">使用教程</a></li>
         <li><a href="faq.html">常见问题</a></li>
         <li><a href="contributing.html">贡献指南</a></li>
+        <li><a href="contact.html">联系我们</a></li>
       </ul>
     </nav>
     <div class="controls">
-      <input type="text" id="searchInput" placeholder="搜索..." />
+      <input type="text" id="searchInput" placeholder="搜索内容..." />
       <button id="darkToggle">🌙 暗黑模式</button>
     </div>
   </header>
 
   <main>
-    <section>
-      <h2>欢迎来到 Qzone 自动点赞项目</h2>
-      <p>这是一个开源工具，帮助你自动点赞 QQ 空间好友动态。适合学习、交流、贡献。</p>
+    <section class="intro">
+      <h2>欢迎使用 Qzone 自动点赞工具</h2>
+      <p>这是一个开源项目，旨在帮助用户自动点赞 QQ 空间好友动态，提升互动效率。</p>
+      <p>你可以通过安装指南快速部署，也可以阅读贡献指南参与开发。</p>
+    </section>
+
+    <section class="features">
+      <h2>核心功能</h2>
+      <ul>
+        <li>自动识别好友动态并点赞</li>
+        <li>支持定时任务与批量操作</li>
+        <li>兼容多种浏览器与平台</li>
+        <li>可自定义点赞频率与范围</li>
+      </ul>
+    </section>
+
+    <section class="instructions">
+      <h2>如何开始</h2>
+      <ol>
+        <li>访问 <a href="installation.html">安装指南</a> 页面</li>
+        <li>根据步骤配置你的环境</li>
+        <li>运行脚本并观察效果</li>
+        <li>如遇问题请查看 <a href="faq.html">常见问题</a></li>
+      </ol>
+    </section>
+
+    <section class="contribute">
+      <h2>参与贡献</h2>
+      <p>我们欢迎任何形式的贡献，包括代码优化、文档补充、样式美化等。</p>
+      <p>请阅读 <a href="contributing.html">贡献指南</a>，了解如何提交 Pull Request。</p>
     </section>
   </main>
 
   <footer>
-    <p>由 llulun 开发 | MIT 许可证</p>
+    <p>© 2025 llulun | 本项目遵循 MIT 许可证 | 邮箱：mail@llulun.top</p>
   </footer>
 </body>
 </html>
