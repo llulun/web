@@ -1,0 +1,221 @@
+/* style.css - 独立的CSS文件，使用现代CSS实践，如Flexbox/Grid，响应式设计 */
+
+/* 重置和基本样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* 容器类，用于居中内容 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 导航栏 */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+.btn-github {
+    background-color: #24292e;
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+/* 英雄区 */
+.hero {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    background-color: #fff;
+    color: #007bff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* 概述区 */
+.overview {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.overview h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.overview p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    flex: 1 1 300px;
+    margin: 20px;
+    text-align: center;
+}
+
+.stat-item i {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.stat-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* CTA区 */
+.cta {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    margin-bottom: 30px;
+}
+
+/* 页脚 */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 40px 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-links i {
+    margin-right: 8px;
+}
+
+/* 响应式设计 - 移动友好，有利于SEO */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+}
