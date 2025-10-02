@@ -1,0 +1,67 @@
+<!-- documentation.html - 文档中心，综合所有 -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <!-- meta -->
+    <title>Qzone Praise Automator - 文档中心</title>
+    <!-- ... -->
+</head>
+<body>
+    <header>
+        <!-- nav -->
+    </header>
+
+    <main>
+        <section class="documentation">
+            <div class="container">
+                <h1>文档中心</h1>
+                <p>完整的技术文档，包括API参考、配置选项和最佳实践。</p>
+                <h2>配置选项详解</h2>
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th>参数</th>
+                            <th>描述</th>
+                            <th>默认值</th>
+                            <th>范围</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>refreshFrequency</td>
+                            <td>页面刷新频率（秒）</td>
+                            <td>180</td>
+                            <td>60-3600</td>
+                        </tr>
+                        <tr>
+                            <td>likeDelay</td>
+                            <td>点赞延迟（秒）</td>
+                            <td>5</td>
+                            <td>1-30</td>
+                        </tr>
+                        <!-- 添加更多参数，扩充表格 -->
+                    </tbody>
+                </table>
+                <h2>API参考</h2>
+                <p>工具基于JavaScript，用户可扩展函数如startLiking()等。</p>
+                <pre><code>// 示例代码
+function startLiking() {
+    // 点赞逻辑
+}</code></pre>
+                <h2>最佳实践</h2>
+                <ul>
+                    <li>设置合理延迟避免频繁操作。</li>
+                    <li>定期查看日志监控异常。</li>
+                    <li>结合登录助手实现全自动化。</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- footer -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
