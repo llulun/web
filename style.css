@@ -1,4 +1,4 @@
-/* style.css - 更新间距 (8px基数), fallback, 无生成器 */
+/* style.css - 更新全站背景，像Google简洁渐变 */
 
 * {
     margin: 0;
@@ -10,15 +10,17 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f7fa;
+    background: linear-gradient(to bottom, #ffffff, #f0f4f8); /* 大厂风格简洁背景 */
 }
 
+/* 容器 */
 .container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 24px;
 }
 
+/* 导航栏 - 添加响应式菜单 */
 .navbar {
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
@@ -78,6 +80,7 @@ body {
     cursor: pointer;
 }
 
+/* 面包屑 */
 .breadcrumb {
     background: #f4f7fa;
     padding: 16px 0;
@@ -99,6 +102,7 @@ body {
     text-decoration: none;
 }
 
+/* 英雄区 - 添加渐变背景 */
 .hero {
     background: linear-gradient(135deg, #1a73e8, #4285f4);
     color: #fff;
@@ -149,6 +153,7 @@ body {
     background-color: rgba(255,255,255,0.15);
 }
 
+/* 概述区 - 使用网格 */
 .overview {
     padding: 80px 0;
     text-align: center;
@@ -196,6 +201,7 @@ body {
     margin-bottom: 8px;
 }
 
+/* 益处区 */
 .benefits {
     background-color: #f9fafb;
     padding: 80px 0;
@@ -221,6 +227,7 @@ body {
     margin-bottom: 16px;
 }
 
+/* 用户评价 - 轮播模拟 */
 .testimonials {
     padding: 80px 0;
     text-align: center;
@@ -242,6 +249,7 @@ body {
     font-style: italic;
 }
 
+/* CTA区 */
 .cta {
     background: linear-gradient(135deg, #4285f4, #1a73e8);
     color: #fff;
@@ -254,10 +262,7 @@ body {
     margin-bottom: 24px;
 }
 
-.cta p {
-    margin-bottom: 40px; /* 修复间距 */
-}
-
+/* 功能区 - 网格布局 */
 .features {
     padding: 80px 0;
 }
@@ -280,9 +285,9 @@ body {
     height: auto;
     border-radius: 6px;
     margin-bottom: 16px;
-    background-color: #f0f0f0; /* fallback颜色 */
 }
 
+/* 安装步骤 - 编号列表 */
 .installation {
     padding: 80px 0;
 }
@@ -319,9 +324,9 @@ body {
     margin: 16px 0;
     border: 1px solid #ddd;
     border-radius: 6px;
-    background-color: #f0f0f0; /* fallback */
 }
 
+/* 使用教程 */
 .usage {
     padding: 80px 0;
 }
@@ -329,9 +334,9 @@ body {
 .usage img {
     width: 100%;
     margin: 16px 0;
-    background-color: #f0f0f0; /* fallback */
 }
 
+/* 更新日志 */
 .changelog {
     padding: 80px 0;
 }
@@ -344,6 +349,7 @@ body {
     border-radius: 4px;
 }
 
+/* 其他项目 */
 .other-projects {
     padding: 80px 0;
 }
@@ -361,6 +367,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+/* 文档中心 */
 .documentation {
     padding: 80px 0;
 }
@@ -388,6 +395,7 @@ pre {
     border-radius: 6px;
 }
 
+/* FAQ */
 .faq {
     padding: 80px 0;
 }
@@ -405,19 +413,22 @@ pre {
     margin-bottom: 8px;
 }
 
+/* 贡献 */
 .contributing {
     padding: 80px 0;
 }
 
+/* 联系 */
 .contact {
     padding: 80px 0;
 }
 
+/* 页脚 - 多列布局，添加紫色装饰 */
 footer {
     background-color: #202124;
     color: #fff;
     padding: 60px 0 40px;
-    border-top: 4px solid #4285f4; /* 紫色装饰 */
+    border-top: 4px solid #4285f4; /* 紫色装饰（蓝紫调） */
 }
 
 .footer-sections {
@@ -452,26 +463,13 @@ footer {
     padding-top: 24px;
 }
 
-.loader {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #1a73e8;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
+/* 动画 */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
+/* 响应式 */
 @media (max-width: 992px) {
     .nav-links {
         display: none;
@@ -511,4 +509,12 @@ footer {
     .stats, .benefit-grid, .feature-grid, .project-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.preview-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
