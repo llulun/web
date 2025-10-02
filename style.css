@@ -57,7 +57,7 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links a.active {
     color: #1a73e8;
 }
 
@@ -79,6 +79,28 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+/* 面包屑 */
+.breadcrumb {
+    background: #f4f7fa;
+    padding: 16px 0;
+    font-size: 0.9rem;
+}
+
+.breadcrumb ol {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+}
+
+.breadcrumb li:last-child {
+    font-weight: bold;
+}
+
+.breadcrumb a {
+    color: #1a73e8;
+    text-decoration: none;
 }
 
 /* 英雄区 - 添加渐变背景 */
@@ -344,7 +366,7 @@ body {
     margin-top: 16px;
 }
 
-.generator-form input, select {
+.generator-form input, .generator-form select {
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -398,7 +420,7 @@ body {
     margin: 24px 0;
 }
 
-.doc-table th, td {
+.doc-table th, .doc-table td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
@@ -448,7 +470,7 @@ pre {
     margin: 0 auto;
 }
 
-.contact-form input, textarea {
+.contact-form input, .contact-form textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 16px;
@@ -460,11 +482,12 @@ pre {
     width: 100%;
 }
 
-/* 页脚 - 多列布局 */
+/* 页脚 - 多列布局，添加紫色装饰 */
 footer {
     background-color: #202124;
     color: #fff;
     padding: 60px 0 40px;
+    border-top: 4px solid #4285f4; /* 紫色装饰（蓝紫调） */
 }
 
 .footer-sections {
@@ -497,6 +520,22 @@ footer {
     text-align: center;
     border-top: 1px solid #333;
     padding-top: 24px;
+}
+
+/* 加载器 */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #1a73e8;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* 动画 */
