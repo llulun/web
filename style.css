@@ -1,4 +1,4 @@
-/* style.css - 更新全站背景，像Google简洁渐变 */
+/* style.css - 更新全站背景，像Google简洁渐变，调整间距 */
 
 * {
     margin: 0;
@@ -113,7 +113,7 @@ body {
 
 .hero h1 {
     font-size: 3.2rem;
-    margin-bottom: 24px;
+    margin-bottom: 32px; /* 增加间距避免重叠 */
 }
 
 .hero p {
@@ -130,6 +130,7 @@ body {
     text-decoration: none;
     font-weight: 700;
     transition: background-color 0.3s, transform 0.2s;
+    margin-right: 16px; /* 按钮间距 */
 }
 
 .btn-primary:hover {
@@ -145,7 +146,6 @@ body {
     border-radius: 6px;
     text-decoration: none;
     font-weight: 700;
-    margin-left: 16px;
     transition: background-color 0.3s;
 }
 
@@ -161,7 +161,7 @@ body {
 
 .overview h2 {
     font-size: 2.6rem;
-    margin-bottom: 24px;
+    margin-bottom: 32px; /* 增加间距 */
 }
 
 .overview ul {
@@ -198,7 +198,7 @@ body {
 
 .stat-item h3 {
     font-size: 1.8rem;
-    margin-bottom: 8px;
+    margin-bottom: 16px; /* 增加间距避免重叠 */
 }
 
 /* 益处区 */
@@ -225,6 +225,10 @@ body {
     font-size: 2.5rem;
     color: #1a73e8;
     margin-bottom: 16px;
+}
+
+.benefit-item h3 {
+    margin-bottom: 16px; /* 增加间距 */
 }
 
 /* 用户评价 - 轮播模拟 */
@@ -259,7 +263,11 @@ body {
 
 .cta h2 {
     font-size: 2.4rem;
-    margin-bottom: 24px;
+    margin-bottom: 32px; /* 增加间距 */
+}
+
+.cta p {
+    margin-bottom: 32px; /* 增加间距避免按钮重叠 */
 }
 
 /* 功能区 - 网格布局 */
@@ -278,13 +286,16 @@ body {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center; /* 居中图标和文字 */
 }
 
-.feature-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
+.feature-icon {
+    color: #1a73e8;
     margin-bottom: 16px;
+}
+
+.feature-item h2 {
+    margin-bottom: 16px; /* 增加间距 */
 }
 
 /* 安装步骤 - 编号列表 */
@@ -299,7 +310,8 @@ body {
 .step-list li {
     position: relative;
     padding-left: 48px;
-    margin-bottom: 32px;
+    margin-bottom: 48px; /* 增加步骤间距避免重叠 */
+    text-align: center; /* 居中图标 */
 }
 
 .step-list li::before {
@@ -319,11 +331,25 @@ body {
     font-weight: 700;
 }
 
+.step-icon {
+    color: #1a73e8;
+    display: block;
+    margin-bottom: 16px;
+}
+
 .step-list img {
     width: 100%;
     margin: 16px 0;
     border: 1px solid #ddd;
     border-radius: 6px;
+}
+
+.step-list h2 {
+    margin-bottom: 16px; /* 增加间距 */
+}
+
+.step-list p {
+    margin-bottom: 16px; /* 增加间距 */
 }
 
 /* 使用教程 */
@@ -349,6 +375,10 @@ body {
     border-radius: 4px;
 }
 
+.version-item h2 {
+    margin-bottom: 16px; /* 增加间距 */
+}
+
 /* 其他项目 */
 .other-projects {
     padding: 80px 0;
@@ -365,6 +395,14 @@ body {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project-item h2 {
+    margin-bottom: 16px; /* 增加间距 */
+}
+
+.project-item p {
+    margin-bottom: 16px; /* 增加间距 */
 }
 
 /* 文档中心 */
@@ -400,22 +438,36 @@ pre {
     padding: 80px 0;
 }
 
+.faq-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
 .faq-item {
-    margin-bottom: 24px;
-    padding: 16px;
+    padding: 24px;
     background: #fff;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center; /* 居中图标 */
+}
+
+.faq-icon {
+    color: #1a73e8;
+    margin-bottom: 16px;
 }
 
 .faq-item h2 {
-    font-size: 1.4rem;
-    margin-bottom: 8px;
+    margin-bottom: 16px; /* 增加间距 */
 }
 
 /* 贡献 */
 .contributing {
     padding: 80px 0;
+}
+
+.contributing ol li {
+    margin-bottom: 24px; /* 增加步骤间距 */
 }
 
 /* 联系 */
@@ -463,6 +515,10 @@ footer {
     padding-top: 24px;
 }
 
+.footer-bottom p {
+    margin-bottom: 16px; /* 增加页脚文字间距 */
+}
+
 /* 动画 */
 @keyframes fadeIn {
     from { opacity: 0; }
@@ -506,8 +562,26 @@ footer {
         padding: 0 16px;
     }
 
-    .stats, .benefit-grid, .feature-grid, .project-grid {
+    .stats, .benefit-grid, .feature-grid, .project-grid, .faq-list {
         grid-template-columns: 1fr;
+    }
+
+    .step-list li {
+        padding-left: 0;
+        text-align: left; /* 移动端调整 */
+        margin-bottom: 32px; /* 增加间距 */
+    }
+
+    .step-list li::before {
+        position: static;
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+    .step-icon {
+        display: inline-block;
+        margin-right: 8px;
+        vertical-align: middle;
     }
 }
 
