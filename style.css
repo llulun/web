@@ -1,601 +1,77 @@
-/* style.css - 更新全站背景，像Google简洁渐变，调整间距 */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --bg: #f9f9f9;
+  --text: #333;
+  --accent: #6c63ff;
+  --header: #fff;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(to bottom, #ffffff, #f0f4f8); /* 大厂风格简洁背景 */
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* 容器 */
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 24px;
+header {
+  background-color: var(--header);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* 导航栏 - 添加响应式菜单 */
-.navbar {
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
+nav a {
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: bold;
 }
 
-.logo {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #1a73e8;
-    text-decoration: none;
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 24px;
+input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: color 0.3s ease;
+button {
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: #1a73e8;
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
 }
 
-.btn-github {
-    background-color: #24292f;
-    color: #fff !important;
-    padding: 10px 20px;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-}
-
-.btn-github:hover {
-    background-color: #333;
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* 面包屑 */
-.breadcrumb {
-    background: #f4f7fa;
-    padding: 16px 0;
-    font-size: 0.9rem;
-}
-
-.breadcrumb ol {
-    display: flex;
-    list-style: none;
-    gap: 8px;
-}
-
-.breadcrumb li:last-child {
-    font-weight: bold;
-}
-
-.breadcrumb a {
-    color: #1a73e8;
-    text-decoration: none;
-}
-
-/* 英雄区 - 添加渐变背景 */
-.hero {
-    background: linear-gradient(135deg, #1a73e8, #4285f4);
-    color: #fff;
-    text-align: center;
-    padding: 120px 0;
-    animation: fadeIn 1s ease-out;
-}
-
-.hero h1 {
-    font-size: 3.2rem;
-    margin-bottom: 32px; /* 增加间距避免重叠 */
-}
-
-.hero p {
-    font-size: 1.3rem;
-    max-width: 800px;
-    margin: 0 auto 32px;
-}
-
-.btn-primary {
-    background-color: #fff;
-    color: #1a73e8;
-    padding: 14px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-right: 16px; /* 按钮间距 */
-}
-
-.btn-primary:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s;
-}
-
-.btn-secondary:hover {
-    background-color: rgba(255,255,255,0.15);
-}
-
-/* 概述区 - 使用网格 */
-.overview {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.overview h2 {
-    font-size: 2.6rem;
-    margin-bottom: 32px; /* 增加间距 */
-}
-
-.overview ul {
-    max-width: 800px;
-    margin: 0 auto 40px;
-    text-align: left;
-    list-style-type: disc;
-    padding-left: 40px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 32px;
-}
-
-.stat-item {
-    text-align: center;
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.stat-item:hover {
-    transform: translateY(-4px);
-}
-
-.stat-item i {
-    color: #1a73e8;
-    margin-bottom: 16px;
-}
-
-.stat-item h3 {
-    font-size: 1.8rem;
-    margin-bottom: 16px; /* 增加间距避免重叠 */
-}
-
-/* 益处区 */
-.benefits {
-    background-color: #f9fafb;
-    padding: 80px 0;
-}
-
-.benefit-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-}
-
-.benefit-item {
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.benefit-item i {
-    font-size: 2.5rem;
-    color: #1a73e8;
-    margin-bottom: 16px;
-}
-
-.benefit-item h3 {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-/* 用户评价 - 轮播模拟 */
-.testimonials {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.testimonial-carousel {
-    display: flex;
-    overflow-x: auto;
-    gap: 24px;
-    padding: 16px 0;
-}
-
-.testimonial-item {
-    min-width: 300px;
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    font-style: italic;
-}
-
-/* CTA区 */
-.cta {
-    background: linear-gradient(135deg, #4285f4, #1a73e8);
-    color: #fff;
-    text-align: center;
-    padding: 80px 0;
-}
-
-.cta h2 {
-    font-size: 2.4rem;
-    margin-bottom: 32px; /* 增加间距 */
-}
-
-.cta p {
-    margin-bottom: 32px; /* 增加间距避免按钮重叠 */
-}
-
-/* 功能区 - 网格布局 */
-.features {
-    padding: 80px 0;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-}
-
-.feature-item {
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center; /* 居中图标和文字 */
-}
-
-.feature-icon {
-    color: #1a73e8;
-    margin-bottom: 16px;
-}
-
-.feature-item h2 {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-/* 安装步骤 - 编号列表 */
-.installation {
-    padding: 80px 0;
-}
-
-.step-list {
-    counter-reset: step;
-}
-
-.step-list li {
-    position: relative;
-    padding-left: 48px;
-    margin-bottom: 48px; /* 增加步骤间距避免重叠 */
-    text-align: left; /* 调整为左对齐，图标在左侧 */
-}
-
-.step-list li::before {
-    content: counter(step);
-    counter-increment: step;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: #1a73e8;
-    color: #fff;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-}
-
-.step-icon {
-    color: #1a73e8;
-    display: block;
-    margin-bottom: 16px;
-}
-
-.step-list img {
-    width: 100%;
-    margin: 16px 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-}
-
-.step-list h2 {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-.step-list p {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-/* 使用教程 */
-.usage {
-    padding: 80px 0;
-}
-
-.usage img {
-    width: 100%;
-    margin: 16px 0;
-}
-
-/* 更新日志 */
-.changelog {
-    padding: 80px 0;
-}
-
-.version-list .version-item {
-    margin-bottom: 32px;
-    padding: 16px;
-    background: #fff;
-    border-left: 4px solid #1a73e8;
-    border-radius: 4px;
-}
-
-.version-item h2 {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-/* 其他项目 */
-.other-projects {
-    padding: 80px 0;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-}
-
-.project-item {
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.project-item h2 {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-.project-item p {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-/* 文档中心 */
-.documentation {
-    padding: 80px 0;
-}
-
-.doc-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0;
-}
-
-.doc-table th, .doc-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-.doc-table th {
-    background: #f4f7fa;
-}
-
-pre {
-    background: #f4f7fa;
-    padding: 16px;
-    overflow-x: auto;
-    border-radius: 6px;
-}
-
-/* FAQ */
-.faq {
-    padding: 80px 0;
-}
-
-.faq-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-}
-
-.faq-item {
-    padding: 24px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    text-align: center; /* 居中图标 */
-}
-
-.faq-icon {
-    color: #1a73e8;
-    margin-bottom: 16px;
-}
-
-.faq-item h2 {
-    margin-bottom: 16px; /* 增加间距 */
-}
-
-/* 贡献 */
-.contributing {
-    padding: 80px 0;
-}
-
-.contributing ol li {
-    margin-bottom: 24px; /* 增加步骤间距 */
-}
-
-/* 联系 */
-.contact {
-    padding: 80px 0;
-}
-
-/* 页脚 - 多列布局，添加紫色装饰 */
 footer {
-    background-color: #202124;
-    color: #fff;
-    padding: 60px 0 40px;
-    border-top: 4px solid #4285f4; /* 紫色装饰（蓝紫调） */
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--header);
+  margin-top: 2rem;
 }
 
-.footer-sections {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 32px;
-    margin-bottom: 32px;
-}
-
-.footer-column h4 {
-    margin-bottom: 16px;
-    font-size: 1.2rem;
-}
-
-.footer-column ul {
-    list-style: none;
-}
-
-.footer-column a {
-    color: #ddd;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-column a:hover {
-    color: #fff;
-}
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #333;
-    padding-top: 24px;
-}
-
-.footer-bottom p {
-    margin-bottom: 16px; /* 增加页脚文字间距 */
-}
-
-/* 动画 */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* 响应式 */
-@media (max-width: 992px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 16px;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        padding: 24px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .hero {
-        padding: 80px 0;
-    }
-
-    .hero h1 {
-        font-size: 2.4rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0 16px;
-    }
-
-    .stats, .benefit-grid, .feature-grid, .project-grid, .faq-list {
-        grid-template-columns: 1fr;
-    }
-
-    .step-list li {
-        padding-left: 0;
-        text-align: left; /* 移动端调整 */
-        margin-bottom: 32px; /* 增加间距 */
-    }
-
-    .step-list li::before {
-        position: static;
-        display: inline-block;
-        margin-right: 8px;
-    }
-
-    .step-icon {
-        display: inline-block;
-        margin-right: 8px;
-        vertical-align: middle;
-    }
-}
-
-.preview-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 32px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* 图标样式 */
-.feature-icon, .step-icon, .faq-icon {
-    color: #1a73e8;
-    margin-bottom: 16px;
-    display: block;
+/* 暗黑模式 */
+body.dark {
+  --bg: #1e1e1e;
+  --text: #eee;
+  --header: #2c2c2c;
 }
