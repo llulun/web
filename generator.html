@@ -1,0 +1,48 @@
+<!-- generator.html - 文案生成器页面，扩写为独立工具 -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <!-- meta -->
+    <title>Qzone Praise Automator - 社交文案生成器</title>
+    <!-- ... -->
+</head>
+<body>
+    <header>
+        <!-- nav -->
+    </header>
+
+    <main>
+        <section class="generator">
+            <div class="container">
+                <h1>社交文案生成器</h1>
+                <p>输入主题或关键词，让AI为您生成吸引人的QQ空间动态文案。支持多种风格，如励志、幽默、情感等。</p>
+                <div class="generator-form">
+                    <label for="theme">主题/关键词：</label>
+                    <input type="text" id="theme" placeholder="例如：周末心情">
+                    <label for="style">风格：</label>
+                    <select id="style">
+                        <option value="casual">休闲</option>
+                        <option value="inspirational">励志</option>
+                        <option value="humorous">幽默</option>
+                    </select>
+                    <button id="generate-btn" class="btn-primary">生成文案</button>
+                </div>
+                <div id="generate-result">
+                    <p>生成结果将显示在这里...</p>
+                    <button id="copy-btn">复制</button>
+                </div>
+                <h2>使用提示</h2>
+                <p>- 输入具体关键词以获得更精准结果。</p>
+                <p>- 生成文案可直接复制到QQ空间发布。</p>
+                <p>- 该工具使用本地AI模拟，未来将集成真实API。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- footer -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
