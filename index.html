@@ -1,73 +1,373 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Qzone Praise Automator</title>
-  <link rel="stylesheet" href="style/main.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-  <script defer src="script/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ空间点赞器 - 提高互动，批量点赞神器</title>
+    <meta name="description" content="QQ空间自动点赞器是一个高效、安全的自动化工具，帮助你轻松批量点赞好友动态，提升人气和互动。支持自定义点赞频率和动态筛选。">
+    <meta name="keywords" content="QQ空间, 点赞器, 自动点赞, 批量点赞, Qzone, 脚本, 工具, 社交互动, 网页应用, SEO优化, 搜索引擎排名">
+    <meta name="robots" content="index, follow">
+    <!-- 网站图标 -->
+    <link rel="icon" href="https://github.com/llulun/qzone-praise-automator/raw/main/docs/favicon.ico" type="image/x-icon">
+    <!-- Tailwind CSS CDN，用于快速构建现代响应式UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Google字体，提升排版美观度 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        /* 针对 LLM 部分的输入框和按钮的额外样式 */
+        #promptInput:focus {
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="logo-title">
-      <img src="assets/logo.png" alt="Logo" class="logo" />
-      <h1>Qzone Praise Automator</h1>
+<body class="text-gray-800 antialiased">
+
+    <!-- 导航栏 -->
+    <header class="bg-white shadow-sm p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Qzone Praise Automator</a>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">主要功能</a>
+                <a href="#how-to" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">如何使用</a>
+                <a href="#changelog" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">新版特性</a>
+                <a href="#llm-feature" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">文案生成器</a>
+                <a href="#other-projects" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">其他项目</a>
+                <a href="https://github.com/llulun/qzone-praise-automator" target="_blank" rel="noopener noreferrer" class="text-white bg-blue-600 px-4 py-2 rounded-full hover:bg-blue-700 transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-xl">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.418 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.085 2.91.828.092-.64.354-1.085.645-1.334-2.22-.253-4.555-1.113-4.555-4.954 0-1.09.39-1.984 1.029-2.675-.103-.254-.446-1.269.09-2.641 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.701.11 2.516.321 1.909-1.29 2.747-1.025 2.747-1.025.536 1.372.207 2.387.09 2.641.64.691 1.029 1.585 1.029 2.675 0 3.841-2.339 4.691-4.566 4.943.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.582.687.483A10.046 10.046 0 0022 12.017C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                    <span>前往 GitHub</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主宣传区域 (Hero Section) -->
+    <main class="container mx-auto px-6 py-16 text-center max-w-7xl">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-blue-800 mb-4 leading-tight">
+            QQ空间自动点赞器
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            一键批量点赞好友动态，轻松提升人气和互动，让你的空间活跃起来！
+        </p>
+        <div class="space-x-4">
+            <a href="https://github.com/llulun/qzone-praise-automator" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.418 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.085 2.91.828.092-.64.354-1.085.645-1.334-2.22-.253-4.555-1.113-4.555-4.954 0-1.09.39-1.984 1.029-2.675-.103-.254-.446-1.269.09-2.641 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.701.11 2.516.321 1.909-1.29 2.747-1.025 2.747-1.025.536 1.372.207 2.387.09 2.641.64.691 1.029 1.585 1.029 2.675 0 3.841-2.339 4.691-4.566 4.943.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.582.687.483A10.046 10.046 0 0022 12.017C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
+                </svg>
+                <span>前往 GitHub 下载</span>
+            </a>
+            <a href="#features" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full border border-blue-600 shadow-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center">
+                了解更多
+            </a>
+        </div>
+    </main>
+
+    <!-- 功能介绍 -->
+    <section id="features" class="bg-gray-100 py-16 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <h2 class="text-4xl font-bold text-center text-blue-800 mb-12">核心功能</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="bg-white p-8 rounded-2xl shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">智能点赞</h3>
+                    <p class="text-gray-600">
+                        自动识别好友动态并进行点赞，彻底解放双手，无需手动操作。
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37a1.724 1.724 0 002.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">参数可控</h3>
+                    <p class="text-gray-600">
+                        自定义点赞间隔、滚动次数等核心参数，根据个人需求灵活配置。
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                    <svg class="w-16 h-16 mx-auto mb-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.048A12.01 12.01 0 003 16.5c0 2.868 2.059 5.485 5 6.495 1.745.354 3.339.49 5 .49s3.255-.136 5-.49c2.941-1.01 5-3.627 5-6.495a12.01 12.01 0 00-.382-3.416z" />
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">安全高效</h3>
+                    <p class="text-gray-600">
+                        模拟人工操作，采用安全机制，降低被平台检测的风险，稳定高效。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 如何使用 -->
+    <section id="how-to" class="py-16 px-6">
+        <div class="container mx-auto text-center max-w-7xl">
+            <h2 class="text-4xl font-bold text-blue-800 mb-12">如何快速上手</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 text-left">
+                    <ol class="space-y-6">
+                        <li class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <span class="text-2xl font-bold text-blue-600">1. 下载并安装</span>
+                            <p class="text-gray-600 mt-2">
+                                从项目页面下载最新版本，按照指引完成安装。
+                            </p>
+                        </li>
+                        <li class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <span class="text-2xl font-bold text-blue-600">2. 登录QQ空间</span>
+                            <p class="text-gray-600 mt-2">
+                                运行工具，进入QQ空间，登录你的账号。
+                            </p>
+                        </li>
+                        <li class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                            <span class="text-2xl font-bold text-blue-600">3. 设置参数并启动</span>
+                            <p class="text-gray-600 mt-2">
+                                根据需要配置点赞间隔、滚动次数等，点击“开始执行”即可。
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://github.com/llulun/qzone-praise-automator/raw/main/docs/control-panel.png"
+                         alt="QQ空间点赞器设置界面截图，展示了操作面板和参数设置选项。"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='https://github.com/llulun/qzone-praise-automator/raw/main/docs/control-panel.png'"
+                         class="rounded-xl shadow-2xl border-4 border-white transition-all duration-300 transform hover:scale-105 w-full md:w-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 更新日志 -->
+    <section id="changelog" class="bg-gray-100 py-16 px-6">
+        <div class="container mx-auto text-center max-w-7xl">
+            <h2 class="text-4xl font-bold text-blue-800 mb-8">新版特性</h2>
+            <div class="grid grid-cols-1 gap-6 text-left max-w-2xl mx-auto">
+                <div class="bg-white p-6 rounded-2xl shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <h3 class="text-xl font-semibold mb-2">版本 2.7.2 - 2025年9月23日</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li>新增系统日志模块：支持 INFO/WARN/ERROR 级别，日志带时间戳。</li>
+                        <li>在控制面板添加 “查看日志” 标签：显示日志列表（最大 500 条），支持清除。</li>
+                        <li>优化日志存储：同时输出到控制台和面板视图。</li>
+                        <li>修复潜在 bug，提升稳定性。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gemini API 文案生成器 -->
+    <section id="llm-feature" class="py-16 px-6">
+        <div class="container mx-auto text-center max-w-7xl">
+            <h2 class="text-4xl font-bold text-blue-800 mb-4">✨社交文案生成器</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                输入主题或关键词，让AI帮你生成引人注目的QQ空间动态文案。
+            </p>
+            <div class="bg-white p-8 rounded-2xl shadow-xl max-w-3xl mx-auto">
+                <textarea id="promptInput"
+                          class="w-full h-32 p-4 text-gray-700 bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 resize-none mb-4"
+                          placeholder="例如：输入“秋天”、“旅行”、“美食”等关键词，或者一段话描述你的想法..."></textarea>
+                <button id="generateBtn"
+                        class="w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
+                    ✨ 生成文案
+                </button>
+                <div id="loadingIndicator" class="mt-4 hidden flex-col items-center">
+                    <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mx-auto"></div>
+                    <p class="text-gray-500 mt-2">正在努力生成中...</p>
+                </div>
+                <div id="outputContainer" class="mt-8 text-left bg-gray-100 p-6 rounded-lg hidden relative shadow-inner">
+                    <h3 class="text-xl font-semibold mb-2 text-blue-700">生成结果：</h3>
+                    <p id="outputContent" class="text-gray-700 whitespace-pre-wrap"></p>
+                    <button id="copyBtn" class="mt-4 bg-gray-200 text-gray-600 py-2 px-4 rounded-full text-sm font-semibold hover:bg-gray-300 transition-colors flex items-center space-x-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 01-2 2h-2a2 2 0 01-2-2m0-6h6"></path>
+                        </svg>
+                        <span>复制</span>
+                    </button>
+                    <span id="copyMessage" class="absolute bottom-6 right-6 text-sm text-green-600 opacity-0 transition-opacity duration-300">已复制!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 其他项目 -->
+    <section id="other-projects" class="bg-gray-100 py-16 px-6">
+        <div class="container mx-auto text-center max-w-7xl">
+            <h2 class="text-4xl font-bold text-blue-800 mb-8">我的其他项目</h2>
+            <div class="bg-white p-8 rounded-2xl shadow-xl max-w-2xl mx-auto transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl">
+                <h3 class="text-2xl font-semibold mb-2">QQ空间自动登录助手</h3>
+                <p class="text-gray-600 mb-6">
+                    这是一个能让你告别繁琐登录步骤的小工具，**特别是在自动点赞时，可以确保登录失效后自动重新登录，从而实现无人看管的长期运行**。它通过两种方式实现快速登录：优先使用**点击头像**的方式，即当你的QQ桌面客户端已登录时，直接在网页端点击头像即可。如果客户端未登录，它会退而求其次地利用 **Chrome 浏览器的自动填充服务** 来完成登录。这个工具不保存你的账户和密码，仅通过自动化操作来提升登录效率，让你的操作流程更加顺畅。
+                </p>
+                <a href="https://github.com/llulun/qzone-auto-login-helper" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.418 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.085 2.91.828.092-.64.354-1.085.645-1.334-2.22-.253-4.555-1.113-4.555-4.954 0-1.09.39-1.984 1.029-2.675-.103-.254-.446-1.269.09-2.641 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.701.11 2.516.321 1.909-1.29 2.747-1.025 2.747-1.025.536 1.372.207 2.387.09 2.641.64.691 1.029 1.585 1.029 2.675 0 3.841-2.339 4.691-4.566 4.943.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.582.687.483A10.046 10.046 0 0022 12.017C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                    <span>前往 GitHub 下载</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="bg-blue-600 text-white py-16 px-6">
+        <div class="container mx-auto text-center max-w-7xl">
+            <h2 class="text-4xl font-bold mb-4">准备好让你的空间更活跃了吗？</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                立即下载QQ空间自动点赞器，体验高效便捷的社交管理。
+            </p>
+            <a href="https://github.com/llulun/qzone-praise-automator" target="_blank" rel="noopener noreferrer" class="bg-white text-blue-600 font-bold py-4 px-12 rounded-full shadow-lg hover:bg-gray-200 transition-all duration-300 inline-flex items-center justify-center space-x-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.418 2.865 8.18 6.83 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.465-1.11-1.465-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.529 2.341 1.085 2.91.828.092-.64.354-1.085.645-1.334-2.22-.253-4.555-1.113-4.555-4.954 0-1.09.39-1.984 1.029-2.675-.103-.254-.446-1.269.09-2.641 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.701.11 2.516.321 1.909-1.29 2.747-1.025 2.747-1.025.536 1.372.207 2.387.09 2.641.64.691 1.029 1.585 1.029 2.675 0 3.841-2.339 4.691-4.566 4.943.359.309.678.92.678 1.855 0 1.336-.012 2.419-.012 2.747 0 .268.18.582.687.483A10.046 10.046 0 0022 12.017C22 6.484 17.523 2 12 2z" clip-rule="evenodd" />
+                </svg>
+                <span>前往 GitHub 下载</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto text-center max-w-7xl">
+            <p>
+                &copy; 2025 Qzone Praise Automator. 保留所有权利。
+            </p>
+            <p class="mt-2">
+                联系邮箱: <a href="mailto:mail@llulun.top" class="text-blue-400 hover:text-blue-300 transition-colors">mail@llulun.top</a>
+            </p>
+            <p class="mt-2 text-sm">
+                本项目为开源工具，仅供学习交流使用。
+            </p>
+        </div>
+    </footer>
+
+    <!-- 自定义模态框 -->
+    <div id="customModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center z-50 transition-opacity duration-300 opacity-0">
+        <div class="bg-white p-6 rounded-lg shadow-xl text-center max-w-sm w-full mx-4 transform scale-95 transition-transform duration-300">
+            <p id="modalMessage" class="text-gray-800 mb-4 font-semibold"></p>
+            <button id="modalCloseBtn" class="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-colors">确定</button>
+        </div>
     </div>
-    <nav>
-      <ul class="nav-list">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="features.html">功能介绍</a></li>
-        <li><a href="installation.html">安装指南</a></li>
-        <li><a href="usage.html">使用教程</a></li>
-        <li><a href="faq.html">常见问题</a></li>
-        <li><a href="contributing.html">贡献指南</a></li>
-        <li><a href="contact.html">联系我们</a></li>
-      </ul>
-    </nav>
-    <div class="controls">
-      <input type="text" id="searchInput" placeholder="搜索内容..." />
-      <button id="darkToggle">🌙 暗黑模式</button>
-    </div>
-  </header>
 
-  <main>
-    <section class="intro">
-      <h2>欢迎使用 Qzone 自动点赞工具</h2>
-      <p>这是一个开源项目，旨在帮助用户自动点赞 QQ 空间好友动态，提升互动效率。</p>
-      <p>你可以通过安装指南快速部署，也可以阅读贡献指南参与开发。</p>
-    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const promptInput = document.getElementById('promptInput');
+            const generateBtn = document.getElementById('generateBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const outputContainer = document.getElementById('outputContainer');
+            const outputContent = document.getElementById('outputContent');
+            const copyBtn = document.getElementById('copyBtn');
+            const copyMessage = document.getElementById('copyMessage');
+            const customModal = document.getElementById('customModal');
+            const modalMessage = document.getElementById('modalMessage');
+            const modalCloseBtn = document.getElementById('modalCloseBtn');
 
-    <section class="features">
-      <h2>核心功能</h2>
-      <ul>
-        <li>自动识别好友动态并点赞</li>
-        <li>支持定时任务与批量操作</li>
-        <li>兼容多种浏览器与平台</li>
-        <li>可自定义点赞频率与范围</li>
-      </ul>
-    </section>
+            // 定义 API URL 和 API Key
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
-    <section class="instructions">
-      <h2>如何开始</h2>
-      <ol>
-        <li>访问 <a href="installation.html">安装指南</a> 页面</li>
-        <li>根据步骤配置你的环境</li>
-        <li>运行脚本并观察效果</li>
-        <li>如遇问题请查看 <a href="faq.html">常见问题</a></li>
-      </ol>
-    </section>
+            // 显示自定义模态框
+            const showCustomModal = (message) => {
+                modalMessage.textContent = message;
+                customModal.classList.remove('hidden');
+                setTimeout(() => {
+                    customModal.classList.remove('opacity-0');
+                    customModal.querySelector('div').classList.remove('scale-95');
+                }, 10);
+            };
 
-    <section class="contribute">
-      <h2>参与贡献</h2>
-      <p>我们欢迎任何形式的贡献，包括代码优化、文档补充、样式美化等。</p>
-      <p>请阅读 <a href="contributing.html">贡献指南</a>，了解如何提交 Pull Request。</p>
-    </section>
-  </main>
+            // 关闭自定义模态框
+            modalCloseBtn.addEventListener('click', () => {
+                customModal.classList.add('opacity-0');
+                customModal.querySelector('div').classList.add('scale-95');
+                setTimeout(() => {
+                    customModal.classList.add('hidden');
+                }, 300);
+            });
 
-  <footer>
-    <p>© 2025 llulun | 本项目遵循 MIT 许可证 | 邮箱：mail@llulun.top</p>
-  </footer>
+            // 添加事件监听器
+            generateBtn.addEventListener('click', async () => {
+                const userPrompt = promptInput.value.trim();
+                if (!userPrompt) {
+                    showCustomModal('请输入要生成文案的主题或关键词！');
+                    return;
+                }
+
+                const payload = {
+                    contents: [{
+                        parts: [{
+                            text: `为QQ空间写一篇关于 "${userPrompt}" 的简短、有趣且吸引人的动态文案，风格要活泼俏皮，包含一些网络流行语。`
+                        }]
+                    }]
+                };
+
+                loadingIndicator.classList.remove('hidden');
+                outputContainer.classList.add('hidden');
+                outputContent.textContent = '';
+                
+                let retryCount = 0;
+                const maxRetries = 3;
+                let delay = 1000;
+
+                while(retryCount < maxRetries) {
+                    try {
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+
+                        const result = await response.json();
+                        const generatedText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                        if (generatedText) {
+                            outputContent.textContent = generatedText;
+                            outputContainer.classList.remove('hidden');
+                            break; 
+                        } else {
+                            throw new Error('API响应中未找到生成内容');
+                        }
+
+                    } catch (error) {
+                        console.error('API调用失败:', error);
+                        retryCount++;
+                        if (retryCount < maxRetries) {
+                            console.log(`正在重试...第 ${retryCount} 次`);
+                            await new Promise(res => setTimeout(res, delay));
+                            delay *= 2; 
+                        } else {
+                            outputContent.textContent = '生成文案失败，请稍后再试。';
+                            outputContainer.classList.remove('hidden');
+                        }
+                    }
+                }
+                
+                loadingIndicator.classList.add('hidden');
+            });
+
+            copyBtn.addEventListener('click', () => {
+                const textToCopy = outputContent.textContent;
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = textToCopy;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextArea);
+
+                copyMessage.classList.add('opacity-100');
+                setTimeout(() => {
+                    copyMessage.classList.remove('opacity-100');
+                }, 1500);
+            });
+        });
+    </script>
+
 </body>
 </html>
